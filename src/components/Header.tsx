@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Down from "./Down";
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
         className="text-white p-4 shadow-md"
       >
         <div className="container mx-auto flex items-center justify-between">
-          <h1 className="text-3xl font-bold">VasteBin/{searchTerm}</h1>
+          <h1 className="text-3xl font-bold">VasteBin{searchTerm ? `/${searchTerm}` : ''}</h1>
           <nav className="flex-1 flex justify-center space-x-5">
             <input
               type="text"
@@ -30,7 +30,21 @@ const Header = () => {
             <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" onClick={handleNavigate}>
               Submit
             </button>
+
           </nav>
+          {searchTerm ? (
+            <Link to={`login`}>
+              <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Login
+              </button>
+            </Link>
+          ) : (
+            <Link to="signup">
+              <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Sign Up
+              </button>
+            </Link>
+          )}
         </div>
       </header>
       <Down search={searchTerm || ""} />
