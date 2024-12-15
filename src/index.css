@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #1e1e2e;
+  background-color: rgb(17 24 39);
 }
 
 @keyframes fly-in {

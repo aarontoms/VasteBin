@@ -12,10 +12,7 @@ const Header = () => {
 
   return (
     <div>
-      <header
-        style={{ backgroundColor: "#1e1e2e" }}
-        className="text-white p-4 shadow-md"
-      >
+      <header className="text-white p-4 shadow-md bg-gray-900">
         <div className="container mx-auto flex items-center justify-between">
           <h1 className="text-3xl font-bold">VasteBin{searchTerm ? `/${searchTerm}` : ''}</h1>
           <nav className="flex-1 flex justify-center space-x-5">
