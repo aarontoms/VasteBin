@@ -37,8 +37,8 @@ function Signup() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
-            <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="flex items-center justify-center min-h-screen bg-gray-900">
+            <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-semibold text-center text-gray-300 mb-6">Create Account</h2>
 
                 <form className="space-y-4" onSubmit={handleSubmit}>
