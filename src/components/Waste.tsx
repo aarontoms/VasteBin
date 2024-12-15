@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 function Waste({ waste, value }: { waste: string, value: string }) {
   return (
-    <div className="flex-1 max-w-xs mx-3 mb-6 p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl flex justify-center items-center overflow-clip"
+    <div className="flex-1 max-w-xs mx-3 mb-6 p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl flex justify-center items-center overflow-clip animate-fly-in"
       style={{
         height: 160,
         width: 360,

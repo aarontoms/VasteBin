@@ -5,3 +5,22 @@
 body {
   background-color: #1e1e2e;
 }
+
+@keyframes fly-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fly-in {
+  animation: fly-in 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
