@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,13 +21,14 @@ function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userData),
+      credentials: "include",
     });
 
     const data = await response.json();
     if (response.ok) {
       navigate("/dashboard");
     } else {
-      alert(`Error: ${data.error}`);
+      setMessage(`${data.error}`);
     }
   };
 
@@ -72,8 +74,8 @@ function Login() {
             </button>
           </div>
         </form>
-        <div className="mt-4 text-center">
-          
+        <div className="mt-4 semibold text-l text-red-500 text-center">
+          {message}
         </div>
 
         <div className="mt-4 text-center">
