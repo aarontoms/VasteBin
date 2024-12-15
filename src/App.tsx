@@ -9,8 +9,8 @@ function App() {
       <Routes>
         <Route path="/:searchTerm" element={<Header />} />
         <Route path="" element={<Header />} />
-        <Route path="/:userid/vastes/:wasteid" element={<Code />} />
-        <Route path="/:userid/login" element={<Login />} />
+        <Route path="/:username/vastes/:wasteid" element={<Code />} />
+        <Route path="/:username/login" element={<Login />} />
       </Routes>
     </Router>
   );

@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Code() {
-    const { userid, wasteid } = useParams<{ userid?: string; wasteid?: string }>();
+    const { username, wasteid } = useParams<{ username?: string; wasteid?: string }>();
     const [code, setCode] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
 
-    console.log(userid, wasteid);
+    console.log(username, wasteid);
     useEffect(() => {
-        fetch(`http://127.0.0.1:5000/${userid}`)
+        fetch(`http://127.0.0.1:5000/${username}`)
             .then(async (res) => {
                 if (!res.ok) {
                     return res.json().then((errorData) => {
@@ -18,7 +18,7 @@ function Code() {
                 return res.json();
             })
             .then((data) => {
-                data = data.filter((waste: { id: string; value: string }) => waste.id === wasteid);
+                data = data.wastes.filter((waste: { id: string; value: string }) => waste.id === wasteid);
                 if (data.length === 0) {
                     throw new Error("Vaste not found");
                 }
@@ -26,7 +26,7 @@ function Code() {
                 console.log("Processed Data:", data[0].value);
             })
             .catch((err) => setError(err.message));
-    }, [userid, wasteid]);
+    }, [username, wasteid]);
 
     return (
         <div>
@@ -36,7 +36,7 @@ function Code() {
                     background: "linear-gradient(to right, #6fa3d1, #2ca58d)",
                 }}
             >
-                <h1 className="text-4xl font-medium mt-2">{userid}'s Paste: {wasteid}</h1>
+                <h1 className="text-4xl font-medium mt-2">{username}'s Paste: {wasteid}</h1>
             </div>
             <div className="px-4">
                     <textarea

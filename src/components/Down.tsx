@@ -3,23 +3,23 @@ import Waste from "./Waste";
 import { Link } from "react-router-dom";
 
 function Down({ search }: { search: string }) {
-    const [results, setResults] = useState<{ id: string; value: string }[] | null>(null);
+    const [results, setResults] = useState<{ id: string; wastes: { id: string; value: string }[] } | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         if (search) {
             fetch(`http://127.0.0.1:5000/${search}`)
-                .then((res) => {
+                .then(async (res) => {
                     if (!res.ok) {
-                        return res.json().then((errorData) => {
-                            throw new Error(errorData.error);
-                        });
+                        const errorData = await res.json();
+                        throw new Error(errorData.error);
                     }
                     return res.json();
                 })
                 .then((data) => {
                     setResults(data)
                     console.log("Processed Data:", results);
+                    console.log("Data:", data);
                 })
                 .catch((err) => setError(err.message));
         }
@@ -30,13 +30,13 @@ function Down({ search }: { search: string }) {
             {error && <div className="text-red-500 text-center">{error}</div>}
             {results && (
                 <div className="flex flex-wrap justify-start">
-                    {results.map((waste) => (
+                    {results.wastes.map((waste) => (
                         <Link to={`vastes/${waste.id}`} key={waste.id} className="block">
                             <Waste waste={waste.id} value={waste.value} />
                         </Link>
                     ))}
                     <Link to={"login"}>
-                        <Waste waste="Create new Waste" value="assmans"/>
+                        <Waste waste="Create new Waste" value="assmans" />
                     </Link>
                 </div>
             )}
