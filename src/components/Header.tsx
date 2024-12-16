@@ -1,13 +1,29 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Down from "./Down";
+import { useUserContext } from "../UserContext";
 
 const Header = () => {
 
   const { searchTerm } = useParams<{ searchTerm?: string }>();
   const [search, setSearch] = useState(searchTerm || "");
+  const { isLoggedIn, setIsLoggedIn } = useUserContext();
   const handleNavigate = () => {
     window.location.href = `/user/${search}`;
+  }
+
+  const hangleLogOut = async () => {
+    const response = await fetch("http://localhost:5000/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    if(response.ok) {
+      setIsLoggedIn(false);
+      localStorage.removeItem("isLoggedIn");
+    }
   }
 
   return (
@@ -27,18 +43,30 @@ const Header = () => {
             <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" onClick={handleNavigate}>
               Submit
             </button>
-
           </nav>
-          <Link to={`/login`}>
-            <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-              Login
-            </button>
-          </Link>
-          <Link to="/signup">
-            <button className="ml-2 bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-              Sign Up
-            </button>
-          </Link>
+
+          {isLoggedIn ? (
+            <div>
+              <Link to={`/`}>
+                <button className="bg-red-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400" onClick={hangleLogOut}>
+                  Logout
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <Link to={`/login`}>
+                <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                  Login
+                </button>
+              </Link>
+              <Link to="/signup">
+                <button className="ml-2 bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                  Sign Up
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </header>
       <Down search={searchTerm || ""} />

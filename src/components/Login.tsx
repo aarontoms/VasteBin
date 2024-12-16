@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../UserContext";
 
 function Login() {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { isLoggedIn, setIsLoggedIn } = useUserContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +28,8 @@ function Login() {
 
     const data = await response.json();
     if (response.ok) {
-      navigate("/dashboard");
+      setIsLoggedIn(true);
+      navigate("/");
     } else {
       setMessage(`${data.error}`);
     }
