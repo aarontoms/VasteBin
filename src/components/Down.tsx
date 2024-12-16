@@ -35,7 +35,7 @@ function Down({ search }: { search: string }) {
                             <Waste waste={waste.id} value={waste.value} />
                         </Link>
                     ))}
-                    <Link to={"login"}>
+                    <Link to={`create`} className="block">
                         <Waste waste="Create new Waste" value="assmans" />
                     </Link>
                 </div>
