@@ -7,7 +7,7 @@ const Header = () => {
   const { searchTerm } = useParams<{ searchTerm?: string }>();
   const [search, setSearch] = useState(searchTerm || "");
   const handleNavigate = () => {
-    window.location.href = `/${search}`;
+    window.location.href = `/user/${search}`;
   }
 
   return (
@@ -29,19 +29,16 @@ const Header = () => {
             </button>
 
           </nav>
-          {searchTerm ? (
-            <Link to={`login`}>
-              <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                Login
-              </button>
-            </Link>
-          ) : (
-            <Link to="signup">
-              <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                Sign Up
-              </button>
-            </Link>
-          )}
+          <Link to={`/login`}>
+            <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+              Login
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="ml-2 bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+              Sign Up
+            </button>
+          </Link>
         </div>
       </header>
       <Down search={searchTerm || ""} />

@@ -8,10 +8,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/:searchTerm" element={<Header />} />
+        <Route path="/user/:searchTerm" element={<Header />} />
         <Route path="" element={<Header />} />
-        <Route path="/:username/vastes/:wasteid" element={<Code />} />
-        <Route path="/:username/login" element={<Login />} />
+        <Route path="/user/:username/:wasteid" element={<Code />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>

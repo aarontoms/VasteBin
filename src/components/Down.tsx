@@ -31,7 +31,7 @@ function Down({ search }: { search: string }) {
             {results && (
                 <div className="flex flex-wrap justify-start">
                     {results.wastes.map((waste) => (
-                        <Link to={`vastes/${waste.id}`} key={waste.id} className="block">
+                        <Link to={`${waste.id}`} key={waste.id} className="block">
                             <Waste waste={waste.id} value={waste.value} />
                         </Link>
                     ))}
