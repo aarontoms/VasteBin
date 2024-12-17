@@ -39,13 +39,16 @@ function Code() {
                 <h1 className="text-4xl font-medium mt-2">{username}'s Paste: {wasteid}</h1>
             </div>
             <div className="px-4">
-                    <textarea
-                        value={code || error || ""}
-                        readOnly
-                        className= {`w-full bg-zinc-700 font-mono p-4 rounded-lg shadow-md outline-none resize-none min-h-[80vh] overflow-y-auto
-                            ${error ? "text-red-500" : "text-gray-300"}`
-                        }   
-                    />
+                <div
+                    // value={code || error || ""}
+                    // readOnly
+                    className={`w-full bg-zinc-700 font-mono p-4 rounded-lg shadow-md outline-none resize-none min-h-[100vh] overflow-y-auto
+                            ${error ? "text-red-500" : "text-gray-300"}`}
+                    style = {{whiteSpace: "pre-wrap", wordBreak: "break-word"}
+                    }
+                >
+                    {code || error || ""}
+                </div>
             </div>
         </div>
     );

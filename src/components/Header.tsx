@@ -13,9 +13,8 @@ const Header = () => {
   }
 
   const hangleLogOut = async () => {
-    window.location.href = `/`;
     const response = await fetch("http://localhost:5000/logout", {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,6 +24,10 @@ const Header = () => {
       setUserId("");
       localStorage.removeItem("isLoggedIn");
     }
+    else{
+      console.log("Failed to logout")
+    }
+    window.location.href = `/`;
   }
 
   return (
