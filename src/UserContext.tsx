@@ -1,23 +1,27 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 interface UserContextType {
-  isLoggedIn: boolean;
-  setIsLoggedIn: (value: boolean) => void;
+  userId: string | null;
+  setUserId: (value: string | null) => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        return localStorage.getItem("isLoggedIn") === "true";
-      });
-    
-      useEffect(() => {
-        localStorage.setItem("isLoggedIn", String(isLoggedIn));
-      }, [isLoggedIn]);
+  const [userId, setUserId] = useState<string | null>(() => {
+    return localStorage.getItem("userId");
+  });
+
+  useEffect(() => {
+    if (userId) {
+      localStorage.setItem("userId", userId);
+    } else {
+      localStorage.removeItem("userId");
+    }
+  }, [userId]);
 
   return (
-    <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <UserContext.Provider value={{ userId, setUserId }}>
       {children}
     </UserContext.Provider>
   );

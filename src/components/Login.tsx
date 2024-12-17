@@ -7,7 +7,7 @@ function Login() {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoggedIn, setIsLoggedIn } = useUserContext();
+  const {userId, setUserId} = useUserContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,8 +28,8 @@ function Login() {
 
     const data = await response.json();
     if (response.ok) {
-      setIsLoggedIn(true);
-      navigate("/");
+      setUserId(data.userid);
+      navigate(`/user/${data.username}`);
     } else {
       setMessage(`${data.error}`);
     }

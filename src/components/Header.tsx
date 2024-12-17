@@ -7,12 +7,13 @@ const Header = () => {
 
   const { searchTerm } = useParams<{ searchTerm?: string }>();
   const [search, setSearch] = useState(searchTerm || "");
-  const { isLoggedIn, setIsLoggedIn } = useUserContext();
+  const { userId, setUserId } = useUserContext();
   const handleNavigate = () => {
     window.location.href = `/user/${search}`;
   }
 
   const hangleLogOut = async () => {
+    window.location.href = `/`;
     const response = await fetch("http://localhost:5000/logout", {
       method: "POST",
       headers: {
@@ -20,8 +21,8 @@ const Header = () => {
       },
       credentials: "include",
     });
-    if(response.ok) {
-      setIsLoggedIn(false);
+    if (response.ok) {
+      setUserId("");
       localStorage.removeItem("isLoggedIn");
     }
   }
@@ -45,13 +46,11 @@ const Header = () => {
             </button>
           </nav>
 
-          {isLoggedIn ? (
+          {userId ? (
             <div>
-              <Link to={`/`}>
-                <button className="bg-red-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400" onClick={hangleLogOut}>
-                  Logout
-                </button>
-              </Link>
+              <button className="bg-red-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400" onClick={hangleLogOut}>
+                Logout
+              </button>
             </div>
           ) : (
             <div>
