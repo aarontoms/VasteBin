@@ -7,7 +7,7 @@ function Login() {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {userId, setUserId} = useUserContext();
+  const { userId, setUserId } = useUserContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

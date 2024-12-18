@@ -22,7 +22,7 @@ const Header = () => {
     });
     if (response.ok) {
       setUserId("");
-      localStorage.removeItem("isLoggedIn");
+      // localStorage.removeItem("isLoggedIn");
     }
     else{
       console.log("Failed to logout")
