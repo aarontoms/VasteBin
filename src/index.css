@@ -9,7 +9,7 @@ body {
 @keyframes fly-in {
   0% {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(10px) scale(0.95);
   }
   60% {
     opacity: 1;
