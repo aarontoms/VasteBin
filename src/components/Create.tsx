@@ -36,6 +36,34 @@ function Create() {
         }
     }, [username]);
 
+    useEffect(() => {
+        if (wasteid){
+            const fun = async () => {
+                
+            }
+        }
+    }, [wasteid]);
+
+    const createButton = async()=>{
+         
+        const response = await fetch(`http://127.0.0.1:5000/create/${username}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ wasteid, vaste, localid: localStorage.getItem("userId") }),
+            credentials: "include",
+        })
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            setErrorMessage(errorData.error);
+        }
+        else {
+            // setErrorMessage("Vaste created successfully");
+        }
+    }
+
     return (
         <div className="text-3xl text-white">
             <div
@@ -50,11 +78,13 @@ function Create() {
                     value={wasteid}
                     onChange={(e) => setWasteid(e.target.value)}
                     placeholder="Enter Vaste ID"
-                    className="bg-gray-800 p-2 text-gray-300 text-xl font-mono rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 w-64"
+                    className="bg-gray-800 p-2 text-gray-300 text-xl font-mono rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600 w-64"
+                    required
                 />
                 {isValidUser &&
                     <button
-                        className="ml-4 bg-gray-800 hover:bg-gray-900 text-gray-300 px-2 py-2 mx-10 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 text-xl font-semibold">
+                        className="ml-4 bg-gray-800 hover:bg-gray-900 text-gray-300 px-2 py-2 mx-10 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-xl font-semibold"
+                        onClick={createButton}>
                         Create Vaste
                     </button>
                 }
