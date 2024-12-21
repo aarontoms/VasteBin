@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
-function Waste({ waste, value }: { waste: string, value: string }) {
+function Waste({ waste, value, created_at }: { waste: string, value: string, created_at: string }) {
   return (
-    <div className="flex-1 max-w-xs mx-3 mb-6 p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl flex justify-center items-center overflow-clip animate-fly-in"
+    <div className="min-w-[90vw] mb-1 px-3 rounded-sm shadow-lg transform transition-transform flex justify-between overflow-clip animate-fly-in border-2 border-gray-700 "
       style={{
-        height: 160,
-        width: 360,
-        background: "linear-gradient(to right, #6fa3d1, #2ca58d)"
+        // background: "linear-gradient(to right, #6fa3d1, #2ca58d)",
+        
       }}>
-      <h1 className="text-4xl text-white font-bold mb-2 text-center">{waste}</h1>
+      <h1 className="text-3xl text-gray-200 font-semibold mb-2">{waste}</h1>
       {/* <p className="text-2l text-white font-bold mb-2 text-center">{value}</p> */}
+      { <p className="text-2l text-gray-200 font-thin mb-2"> {created_at} </p>}
     </div>
   );
 }
