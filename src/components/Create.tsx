@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 // import Cookies from 'js-cookie';
 
+const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+
 function Create() {
     const { username } = useParams<{ username?: string }>();
     const [isValidUser, setIsValidUser] = useState(false);
@@ -17,7 +19,7 @@ function Create() {
             // const sessionCookieValue = Cookies.get('vaste-session');
             // console.log('Session Cookie Value:', sessionCookieValue);
 
-            const response = await fetch(`http://127.0.0.1:5000/validate/${username}`, {
+            const response = await fetch(`${url}/validate/${username}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -41,7 +43,7 @@ function Create() {
     useEffect(() => {
         if (wasteid) {
             const fun = async () => {
-                const response = await fetch(`http://127.0.0.1:5000/validate/${username}/${wasteid}`, {
+                const response = await fetch(`${url}/validate/${username}/${wasteid}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -52,13 +54,16 @@ function Create() {
                     const errorData = await response.json();
                     setWasteidValidity(errorData.error);
                 }
+                else{
+                    setWasteidValidity("");
+                }
             }
             fun();
         }
     }, [wasteid]);
 
     const createButton = async () => {
-        const response = await fetch(`http://127.0.0.1:5000/create/${username}`, {
+        const response = await fetch(`${url}/create/${username}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

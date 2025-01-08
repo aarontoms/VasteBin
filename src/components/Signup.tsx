@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+
 function Signup() {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
@@ -17,7 +19,7 @@ function Signup() {
             password,
         };
 
-        const response = await fetch("http://localhost:5000/signup", {
+        const response = await fetch(`${url}/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

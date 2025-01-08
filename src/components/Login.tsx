@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../UserContext";
 
+const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+
 function Login() {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { userId, setUserId } = useUserContext();
+  const { setUserId } = useUserContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,7 +19,7 @@ function Login() {
       password,
     };
 
-    const response = await fetch("http://localhost:5000/login", {
+    const response = await fetch(`${url}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +31,7 @@ function Login() {
     const data = await response.json();
     if (response.ok) {
       setUserId(data.userid);
-      navigate(`/user/${data.username}`);
+      // navigate(`/user/${data.username}`);
     } else {
       setMessage(`${data.error}`);
     }

@@ -9,7 +9,7 @@ body {
 @keyframes fly-in {
   0% {
     opacity: 0;
-    transform: translateY(10px) scale(0.95);
+    transform: translateY(6px) scale(0.95);
   }
   60% {
     opacity: 1;
@@ -22,5 +22,5 @@ body {
 }
 
 .animate-fly-in {
-  animation: fly-in 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: fly-in 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }

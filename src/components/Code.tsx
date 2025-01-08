@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+
 function Code() {
     const { username, wasteid } = useParams<{ username?: string; wasteid?: string }>();
     const [code, setCode] = useState<string | null>(null);
@@ -8,7 +10,7 @@ function Code() {
 
     console.log(username, wasteid);
     useEffect(() => {
-        fetch(`http://127.0.0.1:5000/${username}`)
+        fetch(`${url}/${username}`)
             .then(async (res) => {
                 if (!res.ok) {
                     return res.json().then((errorData) => {

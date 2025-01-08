@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import Down from "./Down";
 import { useUserContext } from "../UserContext";
 
+const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+
 const Header = () => {
 
   const { searchTerm } = useParams<{ searchTerm?: string }>();
@@ -13,11 +15,12 @@ const Header = () => {
   }
 
   const hangleLogOut = async () => {
-    const response = await fetch("http://localhost:5000/logout", {
+    const response = await fetch(`${url}/logout`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
+      mode: "cors",
       credentials: "include",
     });
     if (response.ok) {
