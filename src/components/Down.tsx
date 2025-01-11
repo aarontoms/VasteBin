@@ -43,7 +43,7 @@ function Down({ search }: { search: string }) {
                                 <Waste waste={waste.id} value={waste.value} created_at={waste.created_at} />
                             </Link>
                             {<button
-                                key={waste.id}
+                                
                                 onClick={onDelete}
                                 className="text-sm text-red-400 hover:text-red-600 font-bold border border-transparent hover:border-red-400 px-2 py-1 rounded transition">
                                 Delete

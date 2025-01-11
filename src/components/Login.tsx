@@ -31,7 +31,7 @@ function Login() {
     const data = await response.json();
     if (response.ok) {
       setUserId(data.userid);
-      // navigate(`/user/${data.username}`);
+      navigate(`/user/${data.username}`);
     } else {
       setMessage(`${data.error}`);
     }
