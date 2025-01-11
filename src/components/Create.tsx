@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 // import Cookies from 'js-cookie';
 
-const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
 function Create() {
     const { username } = useParams<{ username?: string }>();

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
 function Code() {
     const { username, wasteid } = useParams<{ username?: string; wasteid?: string }>();

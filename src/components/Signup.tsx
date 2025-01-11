@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
 function Signup() {
     const navigate = useNavigate();
