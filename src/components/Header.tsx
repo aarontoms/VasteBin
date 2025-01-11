@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Down from "./Down";
 import { useUserContext } from "../UserContext";
 
-const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
 const Header = () => {
 

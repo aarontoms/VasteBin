@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Waste from "./Waste";
 import { Link } from "react-router-dom";
-const url = "http://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
 function onDelete() {
     fetch(`${url}/`, {
