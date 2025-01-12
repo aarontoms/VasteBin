@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../UserContext";
 
 const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
@@ -9,6 +10,7 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const { setUserId } = useUserContext();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -18,7 +20,6 @@ function Signup() {
             email,
             password,
         };
-
         const response = await fetch(`${url}/signup`, {
             method: "POST",
             headers: {
@@ -30,9 +31,19 @@ function Signup() {
         const data = await response.json();
         if (response.ok) {
             setMessage(data.message);
-            setTimeout(() => {
-                navigate("/");
-            }, 2000);
+            const response = await fetch(`${url}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+                credentials: "include",
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setUserId(data.userid);
+                navigate(`/user/${data.username}`);
+            }
         } else {
             setMessage(`Error: ${data.error}`);
         }

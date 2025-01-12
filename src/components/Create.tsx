@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-// import Cookies from 'js-cookie';
 
 const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
@@ -16,8 +15,6 @@ function Create() {
     useEffect(() => {
         const fun = async () => {
             const localid = localStorage.getItem("userId");
-            // const sessionCookieValue = Cookies.get('vaste-session');
-            // console.log('Session Cookie Value:', sessionCookieValue);
 
             const response = await fetch(`${url}/validate/${username}`, {
                 method: "POST",

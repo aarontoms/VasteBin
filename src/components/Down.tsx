@@ -3,12 +3,6 @@ import Waste from "./Waste";
 import { Link } from "react-router-dom";
 const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
 
-function onDelete() {
-    fetch(`${url}/`, {
-
-    })
-}
-
 function Down({ search }: { search: string }) {
     const [results, setResults] = useState<{ id: string; wastes: { id: string; value: string; created_at: string }[] } | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -42,12 +36,6 @@ function Down({ search }: { search: string }) {
                             <Link to={`${waste.id}`} key={waste.id} className="block">
                                 <Waste waste={waste.id} value={waste.value} created_at={waste.created_at} />
                             </Link>
-                            {<button
-                                
-                                onClick={onDelete}
-                                className="text-sm text-red-400 hover:text-red-600 font-bold border border-transparent hover:border-red-400 px-2 py-1 rounded transition">
-                                Delete
-                            </button>}
                         </div>
 
                     ))}
