@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Down from "./Down";
 import { useUserContext } from "../UserContext";
-
-const url = "https://flexible-ambur-vteam-ea5594a5.koyeb.app";
+import url from "./url";
 
 const Header = () => {
 
@@ -25,12 +24,10 @@ const Header = () => {
     });
     if (response.ok) {
       setUserId("");
-      // localStorage.removeItem("isLoggedIn");
     }
     else{
       console.log("Failed to logout")
     }
-    window.location.href = `/`;
   }
 
   return (

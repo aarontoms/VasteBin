@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-
-const url = "https://flexible-ambur-vteam-ea5594a5.koyeb.app";
+import url from "./url";
 
 function Create() {
     const { username } = useParams<{ username?: string }>();
@@ -51,7 +50,7 @@ function Create() {
                     const errorData = await response.json();
                     setWasteidValidity(errorData.error);
                 }
-                else{
+                else {
                     setWasteidValidity("");
                 }
             }
@@ -94,15 +93,17 @@ function Create() {
                 }}
             >
                 <div className="flex items-center">
-                    <input
-                        name="wasteid"
-                        id="wasteid"
-                        value={wasteid}
-                        onChange={(e) => setWasteid(e.target.value)}
-                        placeholder="Enter Vaste ID"
-                        className="bg-gray-800 p-2 text-gray-300 font-bold text-xl font-mono rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600 w-64"
-                        required
-                    />
+                    {isValidUser &&
+                        <input
+                            name="wasteid"
+                            id="wasteid"
+                            value={wasteid}
+                            onChange={(e) => setWasteid(e.target.value)}
+                            placeholder="Enter Vaste ID"
+                            className="bg-gray-800 p-2 text-gray-300 font-bold text-xl font-mono rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600 w-64"
+                            required
+                        />
+                    }
                     <div className="ml-2 text-lg">
                         {wasteidValidity && <span className="font-medium text-yellow-400">{wasteidValidity}</span>}
                     </div>

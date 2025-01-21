@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const url = "https://flexible-ambur-vteam-ea5594a5.koyeb.app";
+import url from "./url";
 
 function Code() {
     const navigate = useNavigate();
