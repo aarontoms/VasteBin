@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Waste from "./Waste";
 import { Link } from "react-router-dom";
-const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://flexible-ambur-vteam-ea5594a5.koyeb.app";
 
 function Down({ search }: { search: string }) {
     const [results, setResults] = useState<{ id: string; wastes: { id: string; value: string; created_at: string }[] } | null>(null);
