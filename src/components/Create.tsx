@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const url = "https://adjacent-ivie-vteam-c26bdd69.koyeb.app";
+const url = "https://flexible-ambur-vteam-ea5594a5.koyeb.app";
 
 function Create() {
     const { username } = useParams<{ username?: string }>();
