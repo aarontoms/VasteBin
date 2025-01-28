@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# VasteBin: A Simple and Secure Paste Sharing Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+VasteBin allows users to create, share, and view text snippets (Vastes) with ease and privacy.  
 
-Currently, two official plugins are available:
+## Features
+- **User Authentication:** Sign up and log in to manage your Vastes.
+- **Create Vastes:** Share text snippets securely.
+- **Browse Vastes:** View your Vastes and others' shared Vastes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+### Sign Up
+1. Navigate to the **Sign Up** page.
+2. Fill in your username and password.
+3. Click **Sign Up** to create an account.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Log In
+1. Go to the **Login** page.
+2. Enter your username and password.
+3. Access your dashboard upon successful login.
 
-- Configure the top-level `parserOptions` property like this:
+### Creating a Vaste
+1. After logging in, click **New Vaste**.
+2. Enter your text snippet and submit.
+3. Your Vaste will be stored securely and listed in your dashboard.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Viewing Other Users' Vastes
+1. Search for users by their username.
+2. Click on a user's profile to view their shared Vastes.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Technology Stack
+- **Frontend:** React, Tailwind CSS
+- **Backend:** Flask
+- **Database:** MongoDB
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage Guide
+### 📖 Development Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aarontoms/VasteBin.git
+  
+2. Install dependencies:
+   ```bash
+    npm install
+  
+3. Start the development server:
+    ```bash
+    npm run dev
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+4. Run the backend:
+   ```bash
+   The backend is hosted separately, written in Python and hosted on Koyeb.
