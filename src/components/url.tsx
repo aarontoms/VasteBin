@@ -1,4 +1,4 @@
 
-const backend_url = "https://flexible-ambur-vteam-ea5594a5.koyeb.app"
+const backend_url = "https://gentle-wileen-vteam-61953df4.koyeb.app/"
 
 export default backend_url
