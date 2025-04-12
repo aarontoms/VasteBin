@@ -48,4 +48,4 @@ VasteBin allows users to create, share, and view text snippets (Vastes) with eas
     npm run dev
 
 4. For the backend code visit:
-   [VasteBin Backend](https://github.com/aarontoms/VasteBin-backend)
+   [VasteBin Backend](https://github.com/aarontoms/VasteBin-backend) (sry but its private)
