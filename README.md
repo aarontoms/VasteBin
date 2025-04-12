@@ -7,7 +7,7 @@ VasteBin allows users to create, share, and view text snippets (Vastes) with eas
 - **Create Vastes:** Share text snippets securely.
 - **Browse Vastes:** View your Vastes and others' shared Vastes.
 
-## Getting Started
+## Usage Guide
 
 ### Sign Up
 1. Navigate to the **Sign Up** page.
@@ -33,7 +33,7 @@ VasteBin allows users to create, share, and view text snippets (Vastes) with eas
 - **Backend:** Flask
 - **Database:** MongoDB
 
-## Usage Guide
+## Development Guide
 ### 📖 Development Setup
 1. Clone the repository:
    ```bash
@@ -47,6 +47,5 @@ VasteBin allows users to create, share, and view text snippets (Vastes) with eas
     ```bash
     npm run dev
 
-4. Run the backend:
-   ```bash
-   The backend is hosted separately, written in Python and hosted on Koyeb.
+4. For the backend code visit:
+   [VasteBin Backend](https://github.com/aarontoms/VasteBin-backend)
